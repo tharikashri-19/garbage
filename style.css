@@ -1,0 +1,131 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+    padding: 20px;
+    color: #333;
+}
+
+/* Headings */
+h2 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: #007bff;
+    margin-right: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Forms */
+form {
+    background: #ffffff;
+    padding: 20px;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+/* Inputs */
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+textarea {
+    resize: none;
+    height: 80px;
+}
+
+/* Buttons */
+button {
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Secondary button (location capture) */
+button[type="button"],
+button.location-btn {
+    background-color: #007bff;
+}
+
+button[type="button"]:hover,
+button.location-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Tables (Admin Dashboard) */
+table {
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background-color: #343a40;
+    color: white;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* Status Colors (Optional) */
+.status-Reported {
+    color: red;
+}
+
+.status-InProgress {
+    color: orange;
+}
+
+.status-Resolved {
+    color: green;
+}
+
+/* Map container */
+#map {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    form {
+        width: 100%;
+    }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet"
+ href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+<style>
+#map { height: 500px; margin-bottom:20px; }
+table,th,td { border:1px solid black; border-collapse:collapse; }
+</style>
+</head>
+<body>
+
+<h2>Admin Dashboard</h2>
+<div id="map"></div>
+
+<table>
+<tr>
+<th>ID</th><th>Category</th><th>Status</th><th>Update</th>
+</tr>
+
+{% for c in complaints %}
+<tr>
+<td>{{c.id}}</td>
+<td>{{c.category}}</td>
+<td>{{c.status}}</td>
+<td>
+<form method="post" action="/update-status/{{c.id}}">
+<select name="status">
+<option {{'selected' if c.status=='Reported'}}>Reported</option>
+<option {{'selected' if c.status=='In Progress'}}>In Progress</option>
+<option {{'selected' if c.status=='Resolved'}}>Resolved</option>
+</select>
+<button>Save</button>
+</form>
+</td>
+</tr>
+{% endfor %}
+</table>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+var map = L.map('map').setView([11.0168, 76.9558], 12);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+.addTo(map);
+
+{% for c in complaints %}
+L.marker([{{c.latitude}}, {{c.longitude}}])
+.addTo(map)
+.bindPopup("<b>{{c.category}}</b><br>{{c.address}}<br>Status: {{c.status}}");
+{% endfor %}
+</script>
+
+</body>
+</html>
